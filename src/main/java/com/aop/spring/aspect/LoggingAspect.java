@@ -1,5 +1,6 @@
 package com.aop.spring.aspect;
 
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Aspect;
 
@@ -14,9 +15,14 @@ public class LoggingAspect {
 	// each method of this class is an "advice".
 	// advice is a standard name used in AOP.
 	// here the pointcut is execution(public getName())
-	@Before("execution(public String getName())")
+	@Before("execution(public * get*(..))")
 	public void loggingAdvice() {
 		System.out.println("Advice run. Get Method called.");
+	}
+	
+	@After("execution(* get*(..))")
+	public void secondAdvice() {
+		System.out.println("After Get Method.");
 	}
 
 }
