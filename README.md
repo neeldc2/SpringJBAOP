@@ -10,3 +10,7 @@ After Get Method.
 Advice run. Get Method called.
 After Get Method.
 Circle Name
+
+AND condition can also be used with Pointcuts
+For instance
+@Before("allGetters() && allGetters3()")
