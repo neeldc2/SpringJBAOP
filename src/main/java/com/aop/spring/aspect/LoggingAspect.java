@@ -1,32 +1,32 @@
 package com.aop.spring.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 
+import com.aop.spring.model.Circle;
+
 @Aspect
 public class LoggingAspect {
 	
-	//This will be called only for Circle class methods
-	//So in the output, it is printed only once
 	@Before("allGetters()")
-	public void loggingAdvice() {
-		System.out.println("Advice run. Get Method called.");
+	public void loggingAdvice(JoinPoint joinPoint) {
+		System.out.println(joinPoint.toString());
+		Circle circle = (Circle) joinPoint.getTarget();
+		System.out.println("Inside Advice : " + circle.getName());
 	}
 	
-	//This never gets called,
-	//because at spring package level, the only
-	//class available is Trial.java
-	@Before("allGetters2()")
-	public void secondAdvice() {
-		System.out.println("Second Advice run.");
+	//Advice for any method having a single parameter for type String.
+	@Before("args(String)")
+	public void advice2() {
+		System.out.println("Single String Argument");
 	}
 	
-	//This will be called twice since the
-	//point cut refer to all the sub-packages as well.
-	@Before("allGetters3()")
-	public void thirdAdvice() {
-		System.out.println("Third Advice run.");
+	//Advice for any method having a single parameter for type String.
+	@Before("args(name)")
+	public void advice3(String name) {
+		System.out.println("Inside Third Advice : " + name);
 	}
 	
 	//Applies to all methods of class Circle
@@ -34,13 +34,5 @@ public class LoggingAspect {
 	public void allGetters() {
 		System.out.println("Main Advice");
 	}
-	
-	//Applies to all classes at this package level
-	@Pointcut("within(com.aop.spring.*)")
-	public void allGetters2() {}
-	
-	//Applies to all classes at this package and also sub-package level
-	@Pointcut("within(com.aop.spring..*)")
-	public void allGetters3() {}
 
 }

@@ -1,13 +1,16 @@
 # SpringJBAOP
 Java Brains Spring AOP Concepts
 
-In this code, multiple pointcuts are added.
+In this code, JointPoint functionality
 Changes are only in LoggingAspect class.
 
 Output
-Third Advice run.
-Advice run. Get Method called.
-Third Advice run.
-Circle Name
+Single String Argument
+Inside Third Advice : New Circle Name
+execution(void com.aop.spring.model.Circle.setName(String))
+Inside Advice : Circle Name
+execution(String com.aop.spring.model.Circle.getName())
+Inside Advice : New Circle Name
+New Circle Name
 
 
