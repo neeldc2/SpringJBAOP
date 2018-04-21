@@ -20,5 +20,10 @@ public class ShapeService {
 	public void setCircle(Circle circle) {
 		this.circle = circle;
 	}
+	
+	public void printStrings(String name, String names) {
+		throw new RuntimeException("Custom Exception");
+		//throw(new RuntimeException());
+	}
 
 }
