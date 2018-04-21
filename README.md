@@ -1,13 +1,13 @@
 # SpringJBAOP
 Java Brains Spring AOP Concepts
 
-In this code, pointcut is added.
-Note that the pointcut method is not executed.
+In this code, multiple pointcuts are added.
 Changes are only in LoggingAspect class.
 
 Output
+Third Advice run.
 Advice run. Get Method called.
-Second Advice run.
-Advice run. Get Method called.
-Second Advice run.
+Third Advice run.
 Circle Name
+
+
