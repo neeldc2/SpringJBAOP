@@ -1,7 +1,7 @@
 # SpringJBAOP
 Java Brains Spring AOP Concepts
 
-This is basic Spring AOP code.
+This is the first Spring AOP code.
 
 Output
 Advice run. Get Method called.
