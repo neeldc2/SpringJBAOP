@@ -1,7 +1,7 @@
 # SpringJBAOP
 Java Brains Spring AOP Concepts
 
-In this code, JointPoint functionality
+After Advice Types
 Changes are in LoggingAspect and ShapeService class.
 
 Output
