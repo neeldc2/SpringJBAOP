@@ -13,19 +13,22 @@ public class LoggingAspect {
 		System.out.println("Single Argument Advice is run");
 	}
 	
-	@AfterReturning("args(name)")
-	public void loggingAdvice2(String name) {
-		System.out.println("Single Argument Advice is run after returning");
+	// After successful return, this advice is invoked
+	@AfterReturning(pointcut="args(name)", returning="returnString")
+	public void loggingAdvice2(String name, String returnString) {
+		System.out.println("The return string is " + returnString);
 	}
 	
-	@AfterReturning("args(name, names)")
-	public void loggingAdvice3(String name, String names) {
-		System.out.println("Double Argument Advice is run after successful return");
+	// Object catches every return type
+	@AfterReturning(pointcut="args(name)", returning="returnObject")
+	public void loggingAdvice3(Object name, Object returnObject) {
+		System.out.println("The return object is " + returnObject.toString());
 	}
 	
-	@AfterThrowing("args(name, names)")
-	public void loggingAdvice4(String name, String names) {
-		System.out.println("Double Argument Advice is run after exception");
+	// similarly, exceptions can also be caught
+	@AfterThrowing(pointcut="args(name, names)", throwing="ex")
+	public void loggingAdvice4(Object name, Object names, RuntimeException ex) {
+		System.out.println("The return excpetion is " + ex.toString());
 	}
 	
 }

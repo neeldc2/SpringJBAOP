@@ -25,5 +25,13 @@ public class ShapeService {
 		throw new RuntimeException("Custom Exception");
 		//throw(new RuntimeException());
 	}
-
+	
+	public String returnArgs(String arg) {
+		return arg;
+	}
+	
+	public Integer returnInt(Integer integer) {
+		return integer;
+	}
+	
 }

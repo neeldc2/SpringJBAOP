@@ -11,7 +11,10 @@ public class Trial {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		ShapeService shapeService = context.getBean("shapeService", ShapeService.class);
-		shapeService.getCircle().setName("New Circle Name");
+		//shapeService.getCircle().setName("New Circle Name");
+		shapeService.returnArgs("Hello World");
+		Integer integer = new Integer(10);
+		shapeService.returnInt(integer);
 		shapeService.printStrings("a", "b");
 
 	}
