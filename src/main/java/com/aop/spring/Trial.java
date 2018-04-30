@@ -1,21 +1,21 @@
 package com.aop.spring;
 
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.aop.spring.model.Triangle;
 import com.aop.spring.service.ShapeService;
 
 public class Trial {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		context.registerShutdownHook();
 		ShapeService shapeService = context.getBean("shapeService", ShapeService.class);
-		//shapeService.getCircle().setName("New Circle Name");
-		shapeService.returnArgs("Hello World");
-		Integer integer = new Integer(10);
-		shapeService.returnInt(integer);
-		shapeService.printStrings("a", "b");
+		Triangle triangle = context.getBean("triangle", Triangle.class);
+		System.out.println(triangle.getName());
+		context.close();
 
 	}
 

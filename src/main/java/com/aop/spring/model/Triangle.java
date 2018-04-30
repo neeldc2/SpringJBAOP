@@ -5,6 +5,7 @@ public class Triangle {
 	String name;
 
 	public String getName() {
+		System.out.println("Triangle get method called");
 		return name;
 	}
 
