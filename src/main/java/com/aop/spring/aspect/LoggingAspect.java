@@ -27,11 +27,6 @@ public class LoggingAspect {
 		return returnValue;
 	}
 	
-	/*@Before("allGetters()")	
-	public void advice() {
-		System.out.println("Advice");
-	}*/
-	
 	@Pointcut("execution(* get*())")
 	public void allGetters(){}
 	
