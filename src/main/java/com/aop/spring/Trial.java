@@ -14,7 +14,8 @@ public class Trial {
 		context.registerShutdownHook();
 		ShapeService shapeService = context.getBean("shapeService", ShapeService.class);
 		Triangle triangle = context.getBean("triangle", Triangle.class);
-		System.out.println(triangle.getName());
+		triangle.getName();
+		shapeService.setTriangle(triangle);
 		context.close();
 
 	}

@@ -1,5 +1,6 @@
 package com.aop.spring.service;
 
+import com.aop.spring.aspect.Loggable;
 import com.aop.spring.model.Circle;
 import com.aop.spring.model.Triangle;
 
@@ -11,7 +12,9 @@ public class ShapeService {
 	public Triangle getTriangle() {
 		return triangle;
 	}
+	@Loggable
 	public void setTriangle(Triangle triangle) {
+		System.out.println("ShapeService setTriangle() method called");
 		this.triangle = triangle;
 	}
 	public Circle getCircle() {

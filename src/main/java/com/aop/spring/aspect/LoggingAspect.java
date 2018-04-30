@@ -12,7 +12,7 @@ public class LoggingAspect {
 	// ProceedingJoinPoint parameter is mandatory
 	// If the methods that around advice catches returns an Object, then
 	// the around advice method also has to return an Object.
-	@Around("allGetters()")
+	@Around("@annotation(com.aop.spring.aspect.Loggable)")
 	public Object aroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
 		Object returnValue = null;
 		try {
@@ -26,6 +26,11 @@ public class LoggingAspect {
 		
 		return returnValue;
 	}
+	
+	/*@Before("allGetters()")	
+	public void advice() {
+		System.out.println("Advice");
+	}*/
 	
 	@Pointcut("execution(* get*())")
 	public void allGetters(){}
